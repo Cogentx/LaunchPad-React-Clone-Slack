@@ -1,6 +1,6 @@
 # Portfolio App
 
-## LaunchPad React Clone - Slack
+## Portfolio React Clone - Slack
 
 ### [JavaScript] React, Redux, Firebase
 
