@@ -4,7 +4,9 @@
 
 ### [JavaScript] React, Redux, Firebase
 
-### [2021] [Initial code based on React Crash Course - Slack Clone - by Sonny Sangha](https://youtu.be/tbvguOj8C-o?t=22463)
+### [2021] JavaScript React coding challenge based on [Sonny Sangha React JS Crash Course - Slack Clone with React, Redux, Firebase and more](https://youtu.be/tbvguOj8C-o?t=22463)
+
+----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
