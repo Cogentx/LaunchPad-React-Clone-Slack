@@ -6,6 +6,11 @@ body {
 
   /* set CSS variables */
   --slack-color: #3f0f40;
+  --slack-color-accent: #49274b;
+
+  --brand-color: var(--slack-color);
+  --brand-color-accent: var(--slack-color-accent);
+
   overflow: hidden;
 
   margin: 0;
@@ -14,6 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
 
 code {
