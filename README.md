@@ -6,7 +6,36 @@
 
 ### [2021] JavaScript React coding challenge based on [Sonny Sangha React JS Crash Course - Slack Clone with React, Redux, Firebase and more](https://youtu.be/tbvguOj8C-o?t=22463)
 
-----
+---
+
+## Updated Firebase Access
+
+See Firebase docs [Access Firebase in your app](https://firebase.google.com/docs/web/setup?authuser=0#access-firebase) for new approach to accessing Firebase from within your app.
+
+```javascript
+import {initializeApp} from 'firebase/app';
+import {getFirestore, collection, getDocs} from 'firebase/firestore/lite';
+// Follow this pattern to import other Firebase services
+// import { } from 'firebase/<service>';
+
+// TODO: Replace the following with your app's Firebase project configuration
+const firebaseConfig = {
+  //...
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Get a list of cities from your database
+async function getCities(db) {
+  const citiesCol = collection(db, 'cities');
+  const citySnapshot = await getDocs(citiesCol);
+  const cityList = citySnapshot.docs.map((doc) => doc.data());
+  return cityList;
+}
+```
+
+## Bootstrap with Create-React-App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
@@ -52,3 +81,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+```
+
+```
