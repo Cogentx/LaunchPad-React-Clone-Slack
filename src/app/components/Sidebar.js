@@ -19,8 +19,6 @@ import {db} from '../firebase';
 function Sidebar() {
   const [channels, loading, error] = useCollection(db.collection('rooms'));
 
-
-
   return (
     <SidebarContainer>
       <SidebarHeader>
@@ -40,7 +38,6 @@ function Sidebar() {
       <SidebarOption Icon={PeopleAltIcon} title="People & User Groups"/>
       <SidebarOption Icon={AppsIcon} title="Apps"/>
       <SidebarOption Icon={FileCopyIcon} title="File Browser"/>
-      <SidebarOption title="Cogentx Browser"/>
       <SidebarOption Icon={ExpandLessIcon} title="Show Less"/>
 
       <hr />
@@ -51,7 +48,7 @@ function Sidebar() {
       <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel"/>
 
       {channels?.docs.map((doc) => 
-        <SidebarOption key={doc.id} addChannelOption 
+        <SidebarOption key={doc.id} 
           title={doc.data().name}
           id={doc.id}/>
       )}

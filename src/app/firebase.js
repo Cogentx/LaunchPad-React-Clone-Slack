@@ -1,4 +1,5 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 // import {getFirestore} from 'firebase/firestore';
 // import {GoogleAuthProvider, getAuth} from 'firebase/auth';
 

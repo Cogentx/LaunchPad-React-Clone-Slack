@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import {db} from '../firebase';
 
-function SidebarOption({Icon, title, addChannelOption}) {
-
-  const addChannel = async () => {
+function SidebarOption({Icon, title, addChannelOption, id}) {
+  const addChannel = () => {
     // TODO: upgrade from built-in DOM 'prompt' function
     const channelName = prompt('Please enter Channel Name:');
 
@@ -12,7 +11,6 @@ function SidebarOption({Icon, title, addChannelOption}) {
         db.collection('rooms').add({
           name: channelName,
         });
-        
       } catch (error) {
         console.log('Error adding room', error);
       }
@@ -29,9 +27,7 @@ function SidebarOption({Icon, title, addChannelOption}) {
         <h3>{title}</h3>
       ) : (
         <SidebarOptionChannel>
-          <h3>
             <span># </span> {title}
-          </h3>
         </SidebarOptionChannel>
       )}
     </SidebarOptionContainer>
@@ -61,4 +57,7 @@ const SidebarOptionContainer = styled.div`
   }
 `;
 
-const SidebarOptionChannel = styled.div``;
+const SidebarOptionChannel = styled.h3`
+  padding: 10px 0;
+  font-weight: 0;
+`;
