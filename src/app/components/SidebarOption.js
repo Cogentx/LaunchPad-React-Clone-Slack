@@ -1,17 +1,18 @@
-import React from 'react';
 import styled from 'styled-components';
-import {db, collection, addDoc, getDocs} from '../firebase';
+import {db} from '../firebase';
 
 function SidebarOption({Icon, title, addChannelOption}) {
+
   const addChannel = async () => {
-    // TODO: upgrade from DOM 'prompt' function
+    // TODO: upgrade from built-in DOM 'prompt' function
     const channelName = prompt('Please enter Channel Name:');
 
     if (channelName) {
       try {
-        await addDoc(collection(db, 'rooms'), {
+        db.collection('rooms').add({
           name: channelName,
         });
+        
       } catch (error) {
         console.log('Error adding room', error);
       }
@@ -31,7 +32,6 @@ function SidebarOption({Icon, title, addChannelOption}) {
           <h3>
             <span># </span> {title}
           </h3>
-          {/* <span># </span> {title} */}
         </SidebarOptionChannel>
       )}
     </SidebarOptionContainer>

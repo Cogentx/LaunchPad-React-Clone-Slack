@@ -2,20 +2,20 @@
   "editor.fontSize": 24,
   "terminal.integrated.fontSize": 18,
   "workbench.colorCustomizations": {
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveForeground": "#15202b99",
-    "titleBar.activeBackground": "#ffc600",
-    "titleBar.inactiveBackground": "#ffc60099",
-    "activityBar.activeBackground": "#ffd133",
-    "activityBar.activeBorder": "#009f7b",
-    "activityBar.background": "#ffd133",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#009f7b",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "titleBar.activeBackground": "#160517",
+    "titleBar.inactiveBackground": "#16051799",
+    "activityBar.activeBackground": "#3e0e41",
+    "activityBar.activeBorder": "#696417",
+    "activityBar.background": "#3e0e41",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#696417",
     "activityBarBadge.foreground": "#e7e7e7",
-    "statusBar.background": "#ffc600",
-    "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#cc9e00"
+    "statusBar.background": "#160517",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#3e0e41"
   },
   // These are all my auto-save configs
   "editor.formatOnSave": true,
@@ -30,10 +30,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
-  "prettier.disableLanguages": [
-    "javascript",
-    "javascriptreact"
-  ],
-  "peacock.color": "#FFC600",
+  "peacock.color": "#160517"
 }
