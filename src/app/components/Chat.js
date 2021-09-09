@@ -2,19 +2,36 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import React from 'react';
 import styled from 'styled-components';
+import {useCollection, useDocument} from 'react-firebase-hooks/firestore';
 import { useSelector } from 'react-redux';
 import ChatInput from './ChatInput';
+import {db} from '../firebase';
 import {selectRoomId} from '../features/appSlice';
 
 function Chat() {
   const roomId = useSelector(selectRoomId);
+  const [roomDetails] = useDocument(
+    roomId && db.collection('rooms').doc(roomId)
+  );
+
+  const [roomMessages] = useCollection(
+    roomId &&
+    db
+      .collection('rooms')
+      .doc(roomId)
+      .collection('messages')
+      .orderBy('timestamp', 'asc')
+  );
+
+  // console.log('rD', roomDetails?.data().name);
+  // console.log('rM', roomMessages);
 
   return (
     <ChatContainer>
       <Header>
         <HeaderLeft>
           <h4>
-            <strong>#Room-name</strong>
+            <strong>#{roomDetails?.data().name}</strong>
             <StarBorderOutlinedIcon />
           </h4>
         </HeaderLeft>
@@ -24,7 +41,19 @@ function Chat() {
           </p>
         </HeaderRight>
       </Header>
-      <ChatMessages>{/* Chat messages go here */}</ChatMessages>
+      <ChatMessages>
+        {roomMessages?.docs.map((doc, index) => {
+          const {message, timestamp, user, userImage} = doc.data();
+          console.log(message, timestamp, user, userImage);
+          
+
+          return (
+            <div key={index}>
+              <h3>Message Component goes here!</h3>
+            </div>
+          )
+        })}
+      </ChatMessages>
       <ChatInput channelId={roomId} channelName="ROOM"/>
     </ChatContainer>
   );

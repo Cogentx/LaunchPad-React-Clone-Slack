@@ -3,6 +3,8 @@ import firebase from 'firebase';
 import styled from 'styled-components';
 import {Button} from '@material-ui/core';
 import {db} from '../firebase';
+// import '../assets/images/logo256.png';
+
 
 function ChatInput({channelName, channelId}) {
   // const inputRef = useRef(null);
@@ -17,6 +19,8 @@ function ChatInput({channelName, channelId}) {
       // message: inputRef.current.value,
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      user: 'Cogentx',
+      userImage: '../assets/images/logo256.png',
     });
 
     // inputRef.current.value = '';
