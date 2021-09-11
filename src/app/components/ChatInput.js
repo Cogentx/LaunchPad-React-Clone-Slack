@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import firebase from 'firebase';
 import styled from 'styled-components';
 import {Button} from '@material-ui/core';
@@ -6,9 +6,15 @@ import {db} from '../firebase';
 // import '../assets/images/logo256.png';
 
 
-function ChatInput({channelName, channelId}) {
-  // const inputRef = useRef(null);
+function ChatInput({chatRef, channelName, channelId}) {
+  const inputRef = useRef(null);
   const [input, setInput] = useState('');
+
+  useEffect(() => {
+    if (inputRef) {
+      inputRef.current.focus();
+      }
+  }, []);
 
   const sendMessage = (e) => {
     e.preventDefault(); // prevents refresh
@@ -20,7 +26,11 @@ function ChatInput({channelName, channelId}) {
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       user: 'Cogentx',
-      userImage: '../assets/images/logo256.png',
+      userImage: 'https://avatars.githubusercontent.com/u/2342026?v=4',
+    });
+
+    chatRef?.current?.scrollIntoView({
+      behavior: 'smooth'
     });
 
     // inputRef.current.value = '';
@@ -35,7 +45,7 @@ function ChatInput({channelName, channelId}) {
           placeholder={`Message #${channelName}`}
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          // ref={inputRef}
+          ref={inputRef}
         />
         <Button hidden type="submit" onClick={sendMessage}>
           SEND
