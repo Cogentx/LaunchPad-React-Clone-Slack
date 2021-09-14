@@ -2,13 +2,13 @@ import React, {useState, useEffect, useRef} from 'react';
 import firebase from 'firebase';
 import styled from 'styled-components';
 import {Button} from '@material-ui/core';
-import {db} from '../firebase';
-// import '../assets/images/logo256.png';
-
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {db, auth} from '../firebase';
 
 function ChatInput({chatRef, channelName, channelId}) {
   const inputRef = useRef(null);
   const [input, setInput] = useState('');
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     if (inputRef) {
@@ -25,8 +25,8 @@ function ChatInput({chatRef, channelName, channelId}) {
       // message: inputRef.current.value,
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      user: 'Cogentx',
-      userImage: 'https://avatars.githubusercontent.com/u/2342026?v=4',
+      user: user.displayName,
+      userImage: user.photoURL,
     });
 
     chatRef?.current?.scrollIntoView({

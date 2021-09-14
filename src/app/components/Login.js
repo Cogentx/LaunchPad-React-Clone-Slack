@@ -17,8 +17,8 @@ function Login() {
           src="https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg"
           alt=""
         />
-        <h1>over40dev Portfolio Slack Clone</h1>
-        <p>over40dev.slack.com</p>
+        <h1>Portfolio Slack Clone</h1>
+        <p>portfolio.slack.com</p>
 
         <Button onClick={signIn}>Sign in with Google</Button>
       </LoginInnerContainer>

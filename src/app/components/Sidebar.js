@@ -3,17 +3,21 @@ import styled from 'styled-components';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import CreateIcon from '@material-ui/icons/Create';
 import SidebarOptions from './SidebarOptions';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {auth} from '../firebase';
 
 function Sidebar() {
+
+  const [user] = useAuthState(auth);
 
   return (
     <SidebarContainer>
       <SidebarHeader>
         <SidebarInfo>
-          <h2>SlangChat</h2>
+          <h2>Cogentx</h2>
           <h3>
             <FiberManualRecordIcon />
-            Ted Cogent
+            {user?.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon></CreateIcon>
