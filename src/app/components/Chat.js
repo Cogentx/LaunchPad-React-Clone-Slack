@@ -34,6 +34,8 @@ function Chat() {
 
   return (
     <ChatContainer>
+      {roomDetails && roomMessages && (
+        <>
           <Header>
             <HeaderLeft>
               <h4>
@@ -47,9 +49,6 @@ function Chat() {
               </p>
             </HeaderRight>
           </Header>
-      {roomDetails && roomMessages && (
-        <>
-
           <ChatMessages>
             {roomMessages?.docs.map((doc, index) => {
               const {message, timestamp, user, userImage} = doc.data();
@@ -65,7 +64,11 @@ function Chat() {
             })}
             <ChatBottom ref={chatRef} />
           </ChatMessages>
-          <ChatInput chatRef={chatRef} channelId={roomId} channelName={roomDetails?.data().name} />
+          <ChatInput
+            chatRef={chatRef}
+            channelId={roomId}
+            channelName={roomDetails?.data().name}
+          />
         </>
       )}
     </ChatContainer>
