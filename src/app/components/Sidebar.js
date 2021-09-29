@@ -14,7 +14,7 @@ function Sidebar() {
     <SidebarContainer>
       <SidebarHeader>
         <SidebarInfo>
-          <h2>Cogentx</h2>
+          <h2>Slack Clone</h2>
           <h3>
             <FiberManualRecordIcon />
             {user?.displayName}
@@ -37,6 +37,7 @@ const SidebarContainer = styled.div`
   border-top: 1px solid var(----brand-color-accent);
   max-width: 260px;
   margin-top: 60px;
+  overflow-y: scroll;
 
   > hr {
     margin-top: 10px;

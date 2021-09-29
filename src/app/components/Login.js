@@ -8,8 +8,9 @@ function Login() {
     e.preventDefault();
     auth
     .signInWithPopup(provider)
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error.message));
   };
+
   return (
     <LoginContainer>
       <LoginInnerContainer>
